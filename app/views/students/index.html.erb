@@ -1,0 +1,30 @@
+<h2>Listado de estudiantes </h2>
+<!-- Variable global @Student que contienes todos los estudiantes de la clase Student -->
+<% @students %>
+<!-- Creamos una tabla -->
+
+<table border="1px">
+	<thead>
+		<tr>
+			<th> Nombre </th>
+			<th> Correo </th>
+			<th> Fecha de nacimiento </th>
+			<th> Programa </th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<!-- Iteramos todos los estudiantes -->
+		<% @students.each do |student| %>
+		<tr>
+			<!-- cuando encontramos  el  imprime en pantalla -->
+			<td><%= student.nombre %></td>
+			<td><%= student.correo %></td>
+			<td><%= student.fecha %></td>
+			<td><%= student.programa %></td>
+		</tr>
+		<% end %>
+		<!-- Fin del each -->
+	</tbody>	
+</table>
+

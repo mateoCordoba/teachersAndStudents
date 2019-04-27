@@ -1,0 +1,24 @@
+<h2>Tabla de Maestros</h2>
+
+<% @teachers %>
+
+<table border="1px">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Correo</th>
+			<th>Materia</th>
+		</tr>		
+	</thead>
+	<tbody>
+		<!-- Iteramos todos los estudiantes -->
+		<% @teachers.each do |teacher| %>
+		<tr>			
+			<td><%=teacher.nombre%></td>
+			<td><%=teacher.correo%></td>
+			<td><%=teacher.materia%></td>
+		</tr>
+		<% end %> <!-- fin del each -->
+	</tbody>
+
+</table>
