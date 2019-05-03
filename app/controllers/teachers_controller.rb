@@ -12,13 +12,7 @@ class TeachersController < ApplicationController
 		
 	end
 	#Peticion get /usuarios al servidor mediante el protocolo http
-	get "/:id/id2" do		
-		id= params[:id].to_i
-		id2= params[:id].to_i
-		@teacher =Teacher.all[id]
-		erb :show
-	end
-
+	
 	get "/:id" do		
 		id= params[:id].to_i
 		@teacher =Teacher.all[id]

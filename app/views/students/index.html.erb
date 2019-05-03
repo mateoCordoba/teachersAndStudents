@@ -16,15 +16,15 @@
 	<tbody>
 		<!-- Iteramos todos los estudiantes -->
 		<% @students.each do |student| %>
-		<tr>
-			<!-- cuando encontramos  el  imprime en pantalla -->
-			<td><%= student.nombre %></td>
-			<td><%= student.correo %></td>
-			<td><%= student.fecha %></td>
-			<td><%= student.programa %></td>
-		</tr>
-		<% end %>
-		<!-- Fin del each -->
+			<tr>
+				<!-- cuando encontramos  el  imprime en pantalla -->
+				<td><%= student.nombre %></td>
+				<td><%= student.correo %></td>
+				<td><%= student.fecha %></td>
+				<td><%= student.programa %></td>
+			</tr>
+		<% end %> <!-- Fin del each -->
+		
 	</tbody>	
 </table>
 
