@@ -11,11 +11,28 @@ class TeachersController < ApplicationController
 		erb :index
 	end
 
-	#Peticion get /usuarios al servidor mediante el protocolo http
+	#Peticion al servidor para hubicarnos en la pagina new.html.erb
+	get "/new" do
+		erb:new
+	end
 
+	#Peticion get /usuarios al servidor mediante el protocolo http
 	get "/:id" do
 		id= params[:id].to_i
 		@teacher =Teacher.all[id]
 		erb :show
 	end
+
+	# Método mediante el cual  creamos un nuevo estudiante, lo guardamos, y al redireccionamos al index
+	post "/" do
+		teacher = Teacher.new(teacher_params)
+		teacher.save
+		redirect "/teachers"
+	end
+
+
+	def teacher_params
+		params[:teacher]
+	end
+
 end

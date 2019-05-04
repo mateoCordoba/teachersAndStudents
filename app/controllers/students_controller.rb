@@ -23,6 +23,7 @@ class StudentsController < ApplicationController
 		erb :show
 	end
 
+# Método mediante el cual  creamos un nuevo estudiante, lo guardamos, y al redireccionamos al index
 	post'/' do
 		student= Student.new(student_params)
 		student.save

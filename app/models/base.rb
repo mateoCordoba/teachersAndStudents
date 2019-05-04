@@ -6,9 +6,11 @@ module Storage
 		def initialize(params = {})
 			params.each do |key, value|
 				instance_variable_set("@#{key}", value)
+
 				self.class.send(:define_method, key) do
 					instance_variable_get("@#{key}")
 				end
+
 			end # End params.each
 		end
 
@@ -27,7 +29,7 @@ module Storage
 					csv << values
 				end
 			end
-		end
+		end #SAVE
 
 		def self.file_headers
 			CSV.open(file_path, &:readline)

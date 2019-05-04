@@ -8,12 +8,12 @@
 			<th>Nombre</th>
 			<th>Correo</th>
 			<th>Materia</th>
-		</tr>		
+		</tr>
 	</thead>
 	<tbody>
 		<!-- Iteramos todos los estudiantes -->
 		<% @teachers.each do |teacher| %>
-		<tr>			
+		<tr>
 			<td><%=teacher.nombre%></td>
 			<td><%=teacher.correo%></td>
 			<td><%=teacher.materia%></td>
@@ -22,3 +22,5 @@
 	</tbody>
 
 </table>
+
+<a href="teachers/new">Create Teacher</a>
