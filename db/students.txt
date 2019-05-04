@@ -1,6 +1,0 @@
-Mateo Cordoba, lmcordoba98@misena.edu.co, 10/nov/1994, ADSI
-mario bross, mb@misena.edu.co, 10/nov/1994, personaje
-roronoa zoro, rozo8@misena.edu.co, 10/nov/1994, pirata
-ruby wiliam, ruwy@misena.edu.co, 10/nov/1994, maestro
-ectcetera, etc@misena.edu.co, 10/nov/1994, ADSI
-etcetera2, etc2@misena.edu.co, 10/nov/1994, ADSIsss

@@ -1,6 +1,7 @@
 
 # llamamos la libreria de sinatra
 require "sinatra"
+require "csv"
 
 APP_ROOT = File.dirname(__FILE__)
 
@@ -18,6 +19,3 @@ require_relative "app/models/teacher.rb"
 map ("/students"){run StudentsController}
 
 map ("/teachers"){run TeachersController}
-
-
-

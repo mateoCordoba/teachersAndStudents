@@ -11,12 +11,32 @@ class StudentsController < ApplicationController
 		erb :index
 	end
 
+	# Método por el cual ingresaremos un unevo ususario
+	get '/new' do
+		erb :new
+	end
+
 	#Peticion get /usuarios al servidor mediante el protocolo http
 	get "/:id" do
 		id= params[:id].to_i
 		@student =Student.all[id]
 		erb :show
 	end
+
+	post'/' do
+		student= Student.new(student_params)
+		student.save
+		redirect '/students'
+	end
+
+	def student_params
+		params[:student]
+	end
+
+
+
+
+
 
 
 end
