@@ -22,6 +22,12 @@
 				<td><%= student.correo %></td>
 				<td><%= student.fecha_de_nacimiento %></td>
 				<td><%= student.programa %></td>
+				<td>
+					<form action="/students/<%= student.id%>" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<input type="submit" value="Eliminar">
+					</form>
+				</td>
 			</tr>
 		<% end %> <!-- Fin del each -->
 

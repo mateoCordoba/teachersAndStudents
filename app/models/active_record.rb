@@ -1,5 +1,5 @@
-require_relative "active_record/client"
-require_relative "active_record/base"
+require_relative "activerecord/client"
+require_relative "activerecord/base"
 module ActiveRecord
 
 end
