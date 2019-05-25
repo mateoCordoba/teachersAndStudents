@@ -1,14 +1,9 @@
+APP_ROOT = File.dirname(__FILE__)
 
 # llamamos la libreria de sinatra
 require "sinatra"
 
-APP_ROOT = File.dirname(__FILE__)
-require_relative "app/models/active_record.rb"
-require_relative "app/controllers/application_controller.rb"
-require_relative "app/controllers/students_controller.rb"
-require_relative "app/controllers/teachers_controller.rb"
-
-
-require_relative "app/models/student.rb"
-
-require_relative "app/models/teacher.rb"
+Dir[File.join(APP_ROOT, 'config', 'initializers','*.rb')].each {|file| require file }
+require_relative "app/controllers/application_controller"
+Dir[File.join(APP_ROOT, 'app', 'controllers','*.rb')].each {|file| require file}
+Dir[File.join(APP_ROOT, 'app', 'models','*.rb')].each {|file| require file }
