@@ -23,6 +23,7 @@ class StudentsController < ApplicationController
 		erb :show
 	end
 
+# Recibimos la peticion  get del servidoor que nos redirige al edit.html.erb
 	get '/:id/edit' do
     id = params[:id]
     @student =Student.find(id)
