@@ -20,14 +20,13 @@ module ActiveRecord
 		def self.create(params)
 			columns = params.keys.join(', ')
 			values = params.values.map {|v| "'#{v}'"}.join(', ')
-			query = "insert into #{table_name}(#{columns} values (#{values});"
+			query = "insert into #{table_name}(#{columns}) values (#{values});"
 			executeQuery(query)
 		end
 
 		#instaciamos la clase client que tiene la coneccion y el query
 		# si la variable tiene un ||= si la variable esta vacia le asigna el valor si esta llena la deja tal cual
 		def self.client
-
 			$client ||= ActiveRecord::Client.new
 		end
 
@@ -47,19 +46,24 @@ module ActiveRecord
 		# Método que retorna todos los registros
 		def self.all
 			results = executeQuery("select * from #{table_name};")
-
+			results.each.map { |row| new(row) }
 		end
 
 		def self.destroy(id)
 			results = executeQuery("delete from #{table_name} where id = #{id};")
 			raise("RecordNotFound") if results.cmd_tuples.zero?
-			true			
+			true
+		end
+
+		def self.edit(id,params)
+			columns = params.keys.join(', ')
+			values = params.values.map {|v| "'#{v}'"}.join(', ')
+			results = executeQuery("UPDATE #{table_name}  SET (#{columns}) = (#{values}) where id= #{id};")
 		end
 
 	  def self.table_name
 	  	raise("NotImplementedError")
 	  end
-
-
+		
 	end # end class
 end # module

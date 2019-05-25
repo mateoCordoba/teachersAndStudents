@@ -23,6 +23,13 @@ class StudentsController < ApplicationController
 		erb :show
 	end
 
+	get '/:id/edit' do
+    id = params[:id]
+    @student =Student.find(id)
+    erb :edit
+  end
+
+
 # método que llama los datos del formulario
 	post'/' do
 		#llamamos al método create
@@ -32,11 +39,22 @@ class StudentsController < ApplicationController
 
 	delete '/:id' do
 		Student.destroy(params[:id])
+		redirect'/students'
+	end
+
+
+	put '/:id' do
+		Student.edit(params[:id], studentEditParams)
+		redirect 'students'
 	end
 
 # retorna los parametros que vienen desde new.html.erb
 	def student_params
 		params[:student]
+	end
+
+	def studentEditParams
+		params[:studentEdit]
 	end
 
 

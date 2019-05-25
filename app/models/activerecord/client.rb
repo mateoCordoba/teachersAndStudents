@@ -12,8 +12,8 @@ module ActiveRecord
 
     #Metodo que ejecuta un query de sql con postgres sea un update,insert, select
     def executeQuery(query)
-      connection.exec(query).values
       connection.exec(query)
+      #connection.exec(query)
     end
 
   end

@@ -19,15 +19,16 @@
 			<tr>
 				<!-- cuando encontramos  el  imprime en pantalla -->
 				<td><%= student.nombre %></td>
+				<td><%= student.programa%></td>
+				<td><%= student.fecha%></td>
 				<td><%= student.correo %></td>
-				<td><%= student.fecha_de_nacimiento %></td>
-				<td><%= student.programa %></td>
 				<td>
 					<form action="/students/<%= student.id%>" method="post">
 						<input type="hidden" name="_method" value="delete">
 						<input type="submit" value="Eliminar">
 					</form>
 				</td>
+				<td> <a href="/students/<%= student.id %>/edit"">Editar</a>  </td>
 			</tr>
 		<% end %> <!-- Fin del each -->
 
