@@ -1,0 +1,7 @@
+{
+  "adapter": "postgresql",
+  "host": "localhost",
+  "username": "mateo",
+  "password": "Boundman",
+  "database": "semillero"
+}
