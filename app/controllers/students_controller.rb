@@ -11,12 +11,56 @@ class StudentsController < ApplicationController
 		erb :index
 	end
 
+	# Método por el cual ingresaremos un unevo ususario
+	get '/new' do
+		erb :new
+	end
+
 	#Peticion get /usuarios al servidor mediante el protocolo http
 	get "/:id" do
-		id= params[:id].to_i
-		@student =Student.all[id]
+		id= params[:id]
+		@student =Student.find(id)
 		erb :show
 	end
+
+	get '/:id/edit' do
+    id = params[:id]
+    @student =Student.find(id)
+    erb :edit
+  end
+
+
+# método que llama los datos del formulario
+	post'/' do
+		#llamamos al método create
+		Student.create(student_params)
+		redirect '/students'
+	end
+
+	delete '/:id' do
+		Student.destroy(params[:id])
+		redirect'/students'
+	end
+
+
+	put '/:id' do
+		Student.edit(params[:id], studentEditParams)
+		redirect 'students'
+	end
+
+# retorna los parametros que vienen desde new.html.erb
+	def student_params
+		params[:student]
+	end
+
+	def studentEditParams
+		params[:studentEdit]
+	end
+
+
+
+
+
 
 
 end

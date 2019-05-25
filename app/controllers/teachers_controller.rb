@@ -6,22 +6,33 @@ class TeachersController < ApplicationController
 	set :views, File.join( APP_ROOT, 'app', 'views', 'teachers')
 
 	#peticion get /usuarios al servidor mediante el protocolo http
-	get "/" do 
+	get "/" do
 		@teachers = Teacher.all  #llamamos al método .all de la clase 'Teacher'
 		erb :index
-		
 	end
+
+	#Peticion al servidor para hubicarnos en la pagina new.html.erb
+	get "/new" do
+		erb:new
+	end
+
 	#Peticion get /usuarios al servidor mediante el protocolo http
-	get "/:id/id2" do		
+	get "/:id" do
 		id= params[:id].to_i
-		id2= params[:id].to_i
 		@teacher =Teacher.all[id]
 		erb :show
 	end
 
-	get "/:id" do		
-		id= params[:id].to_i
-		@teacher =Teacher.all[id]
-		erb :show
+	# Método mediante el cual  creamos un nuevo estudiante, lo guardamos, y al redireccionamos al index
+	post "/" do
+		teacher = Teacher.new(teacher_params)
+		teacher.save
+		redirect "/teachers"
 	end
+
+
+	def teacher_params
+		params[:teacher]
+	end
+
 end
