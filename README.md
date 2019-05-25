@@ -1,2 +1,2 @@
 # teachersAndStudents
-tenemos una tabla donde registramos aprendices y estudiantes en ficheros
+tenemos una tabla donde realizamos operacions CRUD con bases de datos
